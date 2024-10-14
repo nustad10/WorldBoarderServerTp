@@ -1,0 +1,4 @@
+name: WorldBorderPlugin
+main: com.yourname.worldborderplugin.WorldBorderPlugin
+version: 1.0
+api-version: 1.20
