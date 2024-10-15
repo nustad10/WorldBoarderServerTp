@@ -39,7 +39,7 @@ public class CoordinateListener implements PluginMessageListener, Listener {
         String uuidString = in.readUTF();
 
         UUID playerUUID = UUID.fromString(uuidString);
-        World world = Bukkit.getWorld("world"); // Adjust if your world has a different name
+        World world = Bukkit.getWorld("abexilas"); // Adjust if your world has a different name
         if (world == null) {
             plugin.getLogger().severe("World 'world' not found!");
             return;
@@ -60,3 +60,4 @@ public class CoordinateListener implements PluginMessageListener, Listener {
         }
     }
 }
+

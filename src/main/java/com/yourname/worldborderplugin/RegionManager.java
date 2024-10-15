@@ -3,43 +3,53 @@ package com.yourname.worldborderplugin;
 import org.bukkit.Location;
 
 public class RegionManager {
-    private final int x1 = 1424;
-    private final int z1 = -387;
-    private final int x2 = 1974;
-    private final int z2 = -937;
+    // Overall area boundaries
+    private final int minX = -11869;
+    private final int maxX = 8166;
+    private final int minZ = -10017;
+    private final int maxZ = 10017;
 
-    public int getX1() {
-        return x1;
+    // Midpoints to divide the area into quadrants
+    private final int midX = -1852; // Provided midpoint
+    private final int midZ = 125;   // Provided midpoint
+
+    public int getMinX() {
+        return minX;
     }
 
-    public int getZ1() {
-        return z1;
+    public int getMaxX() {
+        return maxX;
     }
 
-    public int getX2() {
-        return x2;
+    public int getMinZ() {
+        return minZ;
     }
 
-    public int getZ2() {
-        return z2;
+    public int getMaxZ() {
+        return maxZ;
+    }
+
+    public int getMidX() {
+        return midX;
+    }
+
+    public int getMidZ() {
+        return midZ;
     }
 
     // Determine the region based on the location
     public int getRegion(Location loc) {
-        int midX = (x1 + x2) / 2;
-        int midZ = (z1 + z2) / 2;
-
         boolean east = loc.getX() > midX;
         boolean south = loc.getZ() > midZ;
 
         if (east && south) {
-            return 4;
+            return 4; // SE (Quadrant 4)
         } else if (east) {
-            return 2;
+            return 2; // NE (Quadrant 2)
         } else if (south) {
-            return 3;
+            return 3; // SW (Quadrant 3)
         } else {
-            return 1;
+            return 1; // NW (Quadrant 1)
         }
     }
 
